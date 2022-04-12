@@ -8,10 +8,12 @@
 #ifndef student_h
 #define student_h
 #include<iostream>
+#include<string>
 using namespace std;
 
 class Student
 {
+public:
     
     //Data memeber initialization
     
@@ -37,7 +39,7 @@ class Student
         
         int length = sizeof(examScoreTempArray)/sizeof(examScoreTempArray[0]);
         
-        for(i=0; i <= length, i++){
+        for(int i=0; i <= length; i++){
             
             examScore[i] = examScoreTempArray[i];
             
@@ -46,8 +48,8 @@ class Student
     }
     
     
-    // Destructor
-    ~Student();
+    // Destructor: NEEDS AN UPDATE/BUG FIX
+    //~Student();
     
     // Getter functions for all member variables
     
@@ -110,7 +112,7 @@ class Student
         
         int length = sizeof(examScore)/sizeof(examScore[0]);
         
-        for(i=0; i <= length, i++){
+        for(int i=0; i <= length; i++){
             
             examTotal = examTotal + examScore[i];
             
@@ -131,7 +133,7 @@ class Student
         
         int length = sizeof(examScore)/sizeof(examScore[0]);
         
-        for(i=0; i <= length, i++){
+        for(int i=0; i <= length; i++){
             
             examTotal = examTotal + examScore[i];
             
