@@ -21,7 +21,7 @@ public:
     string lastName = "";
     string social_security = "";
     double examScore[4];
-    static int studentID;
+    int studentID;
     
     
     // Constructor: no parameters
@@ -37,9 +37,9 @@ public:
         social_security = socialSN;
         studentID = stuID;
         
-        int length = sizeof(examScoreTempArray)/sizeof(examScoreTempArray[0]);
         
-        for(int i=0; i <= length; i++){
+        
+        for(int i=0; i < 4; i++){
             
             examScore[i] = examScoreTempArray[i];
             
@@ -131,11 +131,12 @@ public:
         double examTotal = 0.00;
         double examAverage = 0.00;
         
-        int length = sizeof(examScore)/sizeof(examScore[0]);
+
         
-        for(int i=0; i <= length; i++){
+        for(int i=0; i < 4; i++){
+        
             
-            examTotal = examTotal + examScore[i];
+            examTotal += examScore[i];
             
         }
         
@@ -144,13 +145,13 @@ public:
         cout << "\nStudent first name: " << firstName;
         cout << "\nStudent last name: " << lastName;
         cout << "\nStudent exam average: " << examAverage;
-        cout << "\nExam score list: " << examScore[0] << ", " << examScore[1] << ", " << examScore[2] << ", " << examScore[3];
+        cout << "\nExam score list: " << examScore[0] << ", " << examScore[1] << ", " << examScore[2] << ", " << examScore[3] << endl;
         
     }
     
     //Returns student object ID
     
-    static int getStudentID(){
+    int getStudentID(){
         
         return studentID;
         

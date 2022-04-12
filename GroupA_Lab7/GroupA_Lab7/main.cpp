@@ -9,13 +9,11 @@
 #include "student.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    // testing new github repo
-    std::cout << "Hello, World!\n";
     
     double exams[4] = {90.0, 85.4, 79.3, 98.6};
     
-    Student();
     
+    Student FirstStudent("Johnny", "Apple", "0010020003", exams, 1);
+    FirstStudent.displayBasicStats();
     return 0;
 }
