@@ -93,7 +93,7 @@ public:
     
     void setSocialSecurity(string socialSecurityInbound){
         
-        social_security = socialSecurityInbound;
+        social_security = socialSecurityInbound;    // Do most of these setters need to be pointers.
         
     }
     
@@ -110,11 +110,11 @@ public:
         double examTotal = 0.00;
         double examAverage = 0.00;
         
-        int length = sizeof(examScore)/sizeof(examScore[0]);
+        int length = sizeof(examScore)/sizeof(examScore[0]);  // sizeof yeilds the size in bytes of the data type. This gives 32 bytes/ 8 or uint 4
         
         for(int i=0; i <= length; i++){
             
-            examTotal = examTotal + examScore[i];
+            examTotal = examTotal + examScore[i]; // could just use += here
             
         }
         
