@@ -44,7 +44,7 @@ using namespace std;
  // Setter functions.
 
 
- void Student::setFirstName(string firstNameInbound) {
+ void Student::setFirstName(string *firstNameInbound) {
 
 
  }

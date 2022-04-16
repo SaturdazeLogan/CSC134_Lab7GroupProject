@@ -79,7 +79,7 @@ public:
     
     // Setter functions for all member variables
     
-    void setFirstName(string firstNameInbound){
+    void setFirstName(string *firstNameInbound){
         
         firstName = firstNameInbound;
         
