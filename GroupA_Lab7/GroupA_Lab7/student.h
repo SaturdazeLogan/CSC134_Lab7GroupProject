@@ -14,7 +14,9 @@ using namespace std;
 class Student
 {
 public:
-    
+    // Note from Isaak. I cleaned up this header file a bit. I got rid of the unecceary implementation bits and move them all to
+    // the student.cpp file. It has made this file significatnyl shorter. You will notice that I have left the bits that were initially in the file
+    // in the file, but I just commented them out. When this project is to be turned in they should be deleted, but I left them for the time being.
     //Data memeber initialization
     
     string firstName = "";
@@ -23,14 +25,15 @@ public:
     double examScore[4];
     int studentID;
     
-    
+
     // Constructor: no parameters
-    Student(){
-    }
+    Student();//{
+    //}
     
     
     // Constructor: with parameters for setup
-    Student(string fN, string lN, string socialSN, double examScoreTempArray[], int stuID){
+    Student(string fN, string lN, string socialSN, double examScoreTempArray[], int stuID);
+    /*{
         
         firstName = fN;
         lastName = lN;
@@ -45,7 +48,7 @@ public:
             
         }
         
-    }
+    }*/
     
     
     // Destructor: NEEDS AN UPDATE/BUG FIX
@@ -53,68 +56,73 @@ public:
     
     // Getter functions for all member variables
     
-    string getFirstName(){
+    string getFirstName();//{
         
-        return firstName;
+       // return firstName;
         
-    }
+    //}
     
-    string getLastName(){
+    string getLastName();//{
         
-        return lastName;
+        //return lastName;
         
-    }
+    //}
     
-    string getSocialSecurity(){
+    string getSocialSecurity();//{
         
-        return social_security;
+        //return social_security;
         
-    }
+   // }
     
-    double getExamScore(int examNum){
+    double getExamScore(int examNum);//{
         
-        return examScore[examNum];
+       // return examScore[examNum];
         
-    }
+   // }
     
     // Setter functions for all member variables
     
-    void setFirstName(string firstNameInbound){
+    void setFirstName(string *firstNameInbound);//{
         
-        firstName = firstNameInbound;
+    //    firstName = firstNameInbound;
         
-    }
+    //}
     
-    void setLastName(string lastNameInbound){
+    void setLastName(string *lastNameInbound);//{
         
-        lastName = lastNameInbound;
+       // lastName = lastNameInbound;
         
-    }
+   // }
     
-    void setSocialSecurity(string socialSecurityInbound){
+    void setSocialSecurity(string *socialSecurityInbound);//{
         
-        social_security = socialSecurityInbound;
+        //social_security = socialSecurityInbound;    // Do most of these setters need to be pointers.
         
-    }
-    
-    void setExamScore(int examNum, double examScoreInbound){
+   // }
+    void setExamScore(double scores[]);
+    // In the insturctions the professor singled out that we need to have the function that sets
+    // the values of the exam score array use an array as input.
+
+
+   /* void setExamScore(int examNum, double examScoreInbound){
         
         examScore[examNum] = examScoreInbound;
         
     }
-    
+    */
     //getAverageScore calculates and then returns the exam average of the student.
     
-    double getAverageScore(){
+    double getAverageScore();
+    /*{
         
         double examTotal = 0.00;
         double examAverage = 0.00;
         
-        int length = sizeof(examScore)/sizeof(examScore[0]);
+        int length = sizeof(examScore)/sizeof(examScore[0]);  // sizeof yeilds the size in bytes of the data type. This gives 32 bytes/ 8 or uint 4
         
         for(int i=0; i <= length; i++){
             
-            examTotal = examTotal + examScore[i];
+            examTotal = examTotal + examScore[i]; // could just use += here
             
         }
         
@@ -122,11 +130,12 @@ public:
         
         return examAverage;
         
-    }
+    }*/
     
     //displayBasicStats displays the first and last name, exam scores and exam average to the console.
     
-    void displayBasicStats(){
+    void displayBasicStats();
+    /*{
         
         double examTotal = 0.00;
         double examAverage = 0.00;
@@ -147,15 +156,15 @@ public:
         cout << "\nStudent exam average: " << examAverage;
         cout << "\nExam score list: " << examScore[0] << ", " << examScore[1] << ", " << examScore[2] << ", " << examScore[3] << endl;
         
-    }
+    }*/
     
     //Returns student object ID
     
-    int getStudentID(){
+    int getStudentID();//{
         
-        return studentID;
+        //return studentID;
         
-    }
+    //}
     
 };
 
