@@ -16,7 +16,7 @@ class Student
 public:
     // Note from Isaak. I cleaned up this header file a bit. I got rid of the unecceary implementation bits and move them all to
     // the student.cpp file. It has made this file significatnyl shorter. You will notice that I have left the bits that were initially in the file
-    // in the file, but I just commented them out. When this project is to be turned in they should be deleted, but I left them for the time being. 
+    // in the file, but I just commented them out. When this project is to be turned in they should be deleted, but I left them for the time being.
     //Data memeber initialization
     
     string firstName = "";
