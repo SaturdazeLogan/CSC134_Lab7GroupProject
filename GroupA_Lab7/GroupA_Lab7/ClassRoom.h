@@ -36,7 +36,7 @@ public:
 
     void calcAvg();
 
-    void displayAllStudenInfo();
+    void displayAllStudentInfo();
 
     int returnNumStudentsinclass();
 

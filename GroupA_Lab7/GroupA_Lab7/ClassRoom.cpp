@@ -36,8 +36,7 @@ void ClassRoom::read()
     count=Student::num;
 }
 
-void ClassRoom::print()
-{
+void ClassRoom::displayAllStudentInfo() {
     for(int i=0;i<count;++i)
     {
         cout<<"STUDENT "<<i+1<<" DATA: \n";
