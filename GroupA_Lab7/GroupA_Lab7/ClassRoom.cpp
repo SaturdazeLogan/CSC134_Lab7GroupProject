@@ -65,16 +65,16 @@ void ClassRoom::createStudentArray(string filename) {
        while(!file.eof()) {
         // read data
         file >> fname;
-        StudentArray[i].setfirstName(fname); // set first name
+        StudentArray[i].setFirstName(fname); // set first name
 
         file >> lname;
-        StudentArray[i].setlastName(lname); // set last name
+        StudentArray[i].setLastName(lname); // set last name
 
         file >> ssn;
-        StudentArray[i].setsocial_security(ssn); // set SSN
+        StudentArray[i].setSocialSecurity(ssn); // set SSN
 
         file >> score[0] >> examScore[1] >> examScore[2] >> examScore[3];
-        StudentArray[i].setScores(examScore); // set scores
+        StudentArray[i].setExamScore(examScore); // set scores
 
         i++;
     }
