@@ -34,7 +34,7 @@ public:
 
 
     // Constructor: with parameters for setup
-    Student(string fN, string lN, string socialSN, double examScoreTempArray[4], int stuID);
+    Student(string fN, string lN, string socialSN, double examScoreTempArray[], int stuID);
 
 
 

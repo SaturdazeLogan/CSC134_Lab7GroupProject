@@ -20,11 +20,15 @@ Student::Student() {
 
 }
 
-Student::Student(string fN, string lN, string socialSN, double examScoreTempArray[4], int stuID) {
+Student::Student(string fN, string lN, string socialSN, double examScoreTempArray[], int stuID) {
     firstName = fN;
     lastName = lN;
     social_security = socialSN;
-    examScore[4] = examScoreTempArray[4];
+  //  examScore[4] = examScoreTempArray[4];
+  for (int i = 0; i < 4; i++)
+  {
+      examScore[i] = examScoreTempArray[i];
+  }
     studentID = stuID;
     numberOfStudents += 1;
 }
