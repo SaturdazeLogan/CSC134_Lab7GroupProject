@@ -45,11 +45,10 @@ Student* ClassRoom::getStudentArray() {
 void ClassRoom::read()
 {
     ifstream fin ("student.txt"); //
-    int size=0;
-    string fname;
-    string lname;
-    string ssn;
-    double grades[4];
+    string firstName;
+    string lastName;
+    string social_security;
+    double examScore[4];
     double avg;
     int i=0;
 
@@ -104,7 +103,7 @@ void ClassRoom::sortbyAvg()
     }
 }
 
-void ClassRoom::sortbylastname()
+void ClassRoom::sortbylastName()
 {
     for(int i=0;i<count;++i)
     {
