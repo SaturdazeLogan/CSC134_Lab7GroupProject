@@ -62,23 +62,27 @@ void ClassRoom::createStudentArray(string filename) {
     double avg;
     int i=0;
 
-    while(fin>>fname)
-    {
-        fin>>lname;
-        fin>>ssn;
-        fin>>grades[0];
-        fin>>grades[1];
-        fin>>grades[2];
-        fin>>grades[3];
-        s[i].setFirstName(fname);
-        s[i].setLastName(lname);
-        s[i].setSocialSecurity(ssn);
-        s[i].setExamScore(grades);
-        s[i].getAverageScore();
+       while(!file.eof()) {
+        // read data
+        file >> fname;
+        StudentArray[i].setfirstName(fname); // set first name
+
+        file >> lname;
+        StudentArray[i].setlastName(lname); // set last name
+
+        file >> ssn;
+        StudentArray[i].setsocial_security(ssn); // set SSN
+
+        file >> score[0] >> examScore[1] >> examScore[2] >> examScore[3];
+        StudentArray[i].setScores(examScore); // set scores
+
         i++;
-        Student::num++;
     }
-    count=Student::num;
+
+    // set number of students
+    noOfStudents = i;
+
+    file.close();
 }
 
 void ClassRoom::displayAllStudentInfo() {
@@ -89,7 +93,7 @@ void ClassRoom::displayAllStudentInfo() {
     }
 }
 
-void ClassRoom::calcAvg()
+void ClassRoom::calcavg()
 {
     double sum=0;
     for(int i=0;i<count;++i)
@@ -99,7 +103,7 @@ void ClassRoom::calcAvg()
 cout<<"AVERAGE IS: "<<sum/count<<endl;
 }
 
-void ClassRoom::sortbyAvg()
+void ClassRoom::sortbyavg()
 {
     for(int i=0;i<count;++i)
     {
@@ -118,7 +122,7 @@ void ClassRoom::sortbylastName()
     for(int i=0;i<count;++i)
     {
         for(int j=0;j<count-i-1;++j)
-        if (s[j].getLName().compare(s[j+1].getLName())<0)
+        if (s[j].getLName().compare(s[j+1].getlName())<0)
         {
             Student temp = s[j];
             s[j]=s[j+1];
