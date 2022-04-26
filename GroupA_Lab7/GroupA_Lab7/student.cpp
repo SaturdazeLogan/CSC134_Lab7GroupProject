@@ -1,6 +1,9 @@
 //
 // Created by justme on 4/15/22.
 //
+
+// Created by justme on 4/15/22.
+//
 #include <iostream>
 #include <iomanip>
 #include "student.h"
@@ -112,8 +115,7 @@ void Student::displayBasicStats() {
 
     examAverage = examTotal/4;
 
-    std:cout
-        << setw(20) << lastName << setw(20) << firstName << setw(20) << social_security << '\n';
+    std::cout << setw(20) << lastName << setw(20) << firstName << setw(20) << social_security;
     for (int i = 0; i < 4; i++)
     {
         cout << setw(10) << examScore[i];
@@ -142,16 +144,3 @@ int Student::getStudentID() {
 //Student::Student(string basicString, string basicString1, string basicString2, double *pDouble) {
 
 //}
-     cout << "Last Name" <<
-     cout << "\nStudent first name: " << firstName;
-     cout << "\nStudent last name: " << lastName;
-     cout << "\nStudent exam average: " << examAverage;
-     cout << "\nExam score list: " << examScore[0] << ", " << examScore[1] << ", " << examScore[2] << ", " << examScore[3] << endl;
-    */
- }
-
-
- int Student::getStudentID() {
-
-     return studentID;
- }

@@ -8,16 +8,6 @@
 #ifndef student_h
 #define student_h
 #include<iostream>
-//
-//  student.h
-//  GroupA_Lab7
-//
-//  Created by Logan Hoffman on 4/12/22.
-//
-
-#ifndef student_h
-#define student_h
-#include<iostream>
 #include<string>
 using namespace std;
 
@@ -84,7 +74,7 @@ public:
 
 
 
-   // }
+    // }
     void setExamScore(double scores[]);
     // In the insturctions the professor singled out that we need to have the function that sets
     // the values of the exam score array use an array as input.
@@ -102,13 +92,13 @@ public:
     void displayBasicStats();
 
     //Returns student object ID
-    
+
     int getStudentID();//{
-        
-        //return studentID;
-        
+
+    //return studentID;
+
     //}
-    
+
 };
 
 
