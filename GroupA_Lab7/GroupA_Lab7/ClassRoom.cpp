@@ -42,78 +42,112 @@ void ClassRoom::setStudentArray(Student students[], int numStudent) {
 Student* ClassRoom::getStudentArray() {
     return StudentArray;
 }
-void ClassRoom::read()
-{
-    ifstream fin ("student.txt"); //
-    int size=0;
-    string fname;
-    string lname;
-    string ssn;
-    double grades[4];
+// method to read given text file and fill StudentArray
+void ClassRoom::createStudentArray(string filename) {
+    ifstream file("student.txt");
+
+    // open file
+    file.open(filename);
+
+    // check if file is successfully opened
+    if(!file.is_open()) {
+        cout << "'" << filename << "'" << " file not found !!!" << endl;
+        exit(1);
+    }
+
+    string firstName;
+    string lastName;
+    string social_security;
+    double examScore[4];
     double avg;
     int i=0;
 
-    while(fin>>fname)
-    {
-        fin>>lname;
-        fin>>ssn;
-        fin>>grades[0];
-        fin>>grades[1];
-        fin>>grades[2];
-        fin>>grades[3];
-        s[i].setFirstName(fname);
-        s[i].setLastName(lname);
-        s[i].setSocialSecurity(ssn);
-        s[i].setExamScore(grades);
-        s[i].getAverageScore();
+       while(!file.eof()) {
+        // read data
+        file >> fname;
+        StudentArray[i].setFirstName(fname); // set first name
+
+        file >> lname;
+        StudentArray[i].setLastName(lname); // set last name
+
+        file >> ssn;
+        StudentArray[i].setSocialSecurity(ssn); // set SSN
+
+        file >> score[0] >> examScore[1] >> examScore[2] >> examScore[3];
+        StudentArray[i].setExamScore(examScore); // set scores
+
         i++;
-        Student::num++;
     }
-    count=Student::num;
+
+    // set number of students
+    noOfStudents = i;
+
+    file.close();
+}
+
+// method to sort students data by their average score
+void ClassRoom::sortByAvgScores() {
+    int min_idx;
+
+    // apply selection sort algorithm
+    for (int i = 0; i < noOfStudents - 1; i++) {
+        min_idx = i;
+        for (int j = i+1; j < noOfStudents; j++) {
+            if (StudentArray[j].getAverageScore() < StudentArray[min_idx].getAverageScore()) {
+                min_idx = j;
+            }
+        }
+        // swap the data
+        Student temp = StudentArray[i];
+        StudentArray[i] = StudentArray[min_idx];
+        StudentArray[min_idx] = temp;
+    }
+}
+
+// method to sort students data by their last name
+void ClassRoom::sortByLastName() {
+    int min_idx;
+
+    // apply selection sort algorithm
+    for (int i = 0; i < noOfStudents - 1; i++) {
+        min_idx = i;
+        for (int j = i+1; j < noOfStudents; j++) {
+            if (StudentArray[j].getLastName() < StudentArray[min_idx].getLastName()) {
+                min_idx = j;
+            }
+        }
+        // swap the data
+        Student temp = StudentArray[i];
+        StudentArray[i] = StudentArray[min_idx];
+        StudentArray[min_idx] = temp;
+    }
+}
+
+// method to get class average score
+double ClassRoom::getClassAvgScores() {
+    double avg = 0;
+
+    for(int i = 0; i < noOfStudents; i++) {
+        // add average average scores
+        avg += StudentArray[i].getAverageScore();
+    }
+    // compute average and return
+    return avg/noOfStudents;
 }
 
 void ClassRoom::displayAllStudentInfo() {
-    for(int i=0;i<count;++i)
-    {
-        cout<<"STUDENT "<<i+1<<" DATA: \n";
-        s[i].print();
-    }
+        //To print
+       cout << left << setw(15) << "last Name" 
+            << left << setw(15) << "first Name" 
+            << left << setw(20) << "SSN" 
+            << left << setw(15) << "examScore1" 
+            << left << setw(15) << "examScore2" 
+            << left << setw(15) << "examScore3" 
+            << left << setw(15) << "examScore4" 
+            << left << setw(15) << "Average" << endl;
+    cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
+  for(int i = 0; i < noOfStudents; i++) {
+        StudentArray[i].display(); // print data
 }
 
-void ClassRoom::calcAvg()
-{
-    double sum=0;
-    for(int i=0;i<count;++i)
-    {
-        sum+=s[i].getAvg();
-    }
-cout<<"AVERAGE IS: "<<sum/count<<endl;
-}
-
-void ClassRoom::sortbyAvg()
-{
-    for(int i=0;i<count;++i)
-    {
-        for(int j=0;j<count-i-1;++j)
-        if (s[j].getAvg() > s[j+1].getAvg())
-        {
-            Student temp = s[j];
-            s[j]=s[j+1];
-            s[j+1]=temp;
-        }
-    }
-}
-
-void ClassRoom::sortbylastname()
-{
-    for(int i=0;i<count;++i)
-    {
-        for(int j=0;j<count-i-1;++j)
-        if (s[j].getLName().compare(s[j+1].getLName())<0)
-        {
-            Student temp = s[j];
-            s[j]=s[j+1];
-            s[j+1]=temp;
-        }
-    }
 }
