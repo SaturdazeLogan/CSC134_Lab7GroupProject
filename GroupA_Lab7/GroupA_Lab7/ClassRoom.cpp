@@ -147,7 +147,7 @@ void ClassRoom::displayAllStudentInfo() {
             << left << setw(15) << "Average" << endl;
     cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
   for(int i = 0; i < noOfStudents; i++) {
-        StudentArray[i].display(); // print the ith student data
+        StudentArray[i].display(); // print data
 }
 
 }
