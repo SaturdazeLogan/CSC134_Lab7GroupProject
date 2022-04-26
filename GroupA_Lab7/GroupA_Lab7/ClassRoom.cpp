@@ -5,7 +5,43 @@
 #include "student.h"
 using namespace std;
 
+//Constructor
+ClassRoom::ClassRoom(string cname) {
+    classRoomName = cname;
+    noOfStudents = 0;
+}
 
+//Setter-class name
+void ClassRoom::setClassRoomName(string name) {
+    classRoomName = name;
+}
+
+//Setter-number of students
+void ClassRoom::setNoOfStudents(int n) {
+    noOfStudents = n;
+}
+
+//Getter-class name
+string ClassRoom::getClassRoomName() {
+    return classRoomName;
+}
+
+//Getter-number of students
+int ClassRoom::getNoOfStudents() {
+    return noOfStudents;
+}
+
+//Method to fill StudentArray array
+void ClassRoom::setStudentArray(Student students[], int numStudent) {
+    noOfStudents = numStudent;
+    for(int i = 0; i < numStudent; i++)
+        StudentArray[i] = students[i];
+}
+
+//Getter for students array
+Student* ClassRoom::getStudentArray() {
+    return StudentArray;
+}
 void ClassRoom::read()
 {
     ifstream fin ("student.txt"); //
