@@ -42,9 +42,19 @@ void ClassRoom::setStudentArray(Student students[], int numStudent) {
 Student* ClassRoom::getStudentArray() {
     return StudentArray;
 }
-void ClassRoom::read()
-{
-    ifstream fin ("student.txt"); //
+// method to read given text file and fill StudentArray
+void ClassRoom::createStudentArray(string filename) {
+    ifstream file("student.txt");
+
+    // open file
+    file.open(filename);
+
+    // check if file is successfully opened
+    if(!file.is_open()) {
+        cout << "'" << filename << "'" << " file not found !!!" << endl;
+        exit(1);
+    }
+
     string firstName;
     string lastName;
     string social_security;
