@@ -41,6 +41,9 @@ using namespace std;
      return *examScore[examIndex];
  }
 
+ double* Student::getExamScoreArray(){
+     return examScore;
+ }
  // Setter functions.
 
 

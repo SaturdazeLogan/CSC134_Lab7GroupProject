@@ -79,7 +79,7 @@ public:
        // return examScore[examNum];
         
    // }
-    
+   double* getExamScoreArray();
     // Setter functions for all member variables
     
     void setFirstName(string *firstNameInbound);//{
