@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B49094B828007877008BA66F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B49094B728007877008BA66F /* main.cpp */; };
+		B47AE15C2818CD22000734E9 /* ClassRoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B47AE1582818CD22000734E9 /* ClassRoom.cpp */; };
+		B47AE15D2818CD22000734E9 /* student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B47AE1592818CD22000734E9 /* student.cpp */; };
+		B47AE15E2818CD22000734E9 /* TestProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B47AE15A2818CD22000734E9 /* TestProgram.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B47AE1582818CD22000734E9 /* ClassRoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClassRoom.cpp; sourceTree = "<group>"; };
+		B47AE1592818CD22000734E9 /* student.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = student.cpp; sourceTree = "<group>"; };
+		B47AE15A2818CD22000734E9 /* TestProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestProgram.cpp; sourceTree = "<group>"; };
+		B47AE15B2818CD22000734E9 /* ClassRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassRoom.h; sourceTree = "<group>"; };
 		B49094B428007877008BA66F /* GroupA_Lab7 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GroupA_Lab7; sourceTree = BUILT_PRODUCTS_DIR; };
-		B49094B728007877008BA66F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B49094BF2805C24C008BA66F /* student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = student.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,8 +63,11 @@
 		B49094B628007877008BA66F /* GroupA_Lab7 */ = {
 			isa = PBXGroup;
 			children = (
-				B49094B728007877008BA66F /* main.cpp */,
 				B49094BF2805C24C008BA66F /* student.h */,
+				B47AE15A2818CD22000734E9 /* TestProgram.cpp */,
+				B47AE1592818CD22000734E9 /* student.cpp */,
+				B47AE15B2818CD22000734E9 /* ClassRoom.h */,
+				B47AE1582818CD22000734E9 /* ClassRoom.cpp */,
 			);
 			path = GroupA_Lab7;
 			sourceTree = "<group>";
@@ -121,7 +129,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B49094B828007877008BA66F /* main.cpp in Sources */,
+				B47AE15E2818CD22000734E9 /* TestProgram.cpp in Sources */,
+				B47AE15D2818CD22000734E9 /* student.cpp in Sources */,
+				B47AE15C2818CD22000734E9 /* ClassRoom.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

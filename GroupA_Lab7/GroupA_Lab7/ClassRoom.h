@@ -19,26 +19,27 @@ public:
     ClassRoom(string classRoomName);
 
     Student* getStudentArray();
-    Student setStudentArray(Student StudentArray[24], int numberofStudenObjects);
+    void setStudentArray(Student StudentArray[24], int numberofStudenObjects);
+    void createStudentArray(string fileName);
 
-    int setNumStudentObjects();
-    int getNumStudentObjects();
+    void setNumStudentObjects(int n);
+    void getNumStudentObjects(int n);
 
-    string setClassRoomName(string classRoomName);
+    void setClassRoomName(string classRoomName);
 
     string getClassRoomName();
+    
+    double getClassAvgScores();
 
     void read();
 
-    void sortbyAvg();
+    void sortByAvg();
 
-    void sortbylastname();
-
-    void calcAvg();
+    void sortByLastName();
 
     void displayAllStudentInfo();
 
-    int returnNumStudentsinclass();
+    int getNoOfStudents();
 
 };
 #endif //CSC134_LAB7GROUPPROJECT_CLASSROOM_H
