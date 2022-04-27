@@ -8,7 +8,7 @@ using namespace std;
 //Constructor
 ClassRoom::ClassRoom(string cname) {
     classRoomName = cname;
-    noOfStudents = 0;
+    numOfStudentObjects = 0;
 }
 
 //Setter-class name
@@ -17,8 +17,8 @@ void ClassRoom::setClassRoomName(string name) {
 }
 
 //Setter-number of students
-void ClassRoom::setNoOfStudents(int n) {
-    noOfStudents = n;
+void ClassRoom::setNumStudentObjects(int n) {
+    numOfStudentObjects = n;
 }
 
 //Getter-class name
@@ -28,12 +28,12 @@ string ClassRoom::getClassRoomName() {
 
 //Getter-number of students
 int ClassRoom::getNoOfStudents() {
-    return noOfStudents;
+    return numOfStudentObjects;
 }
 
 //Method to fill StudentArray array
 void ClassRoom::setStudentArray(Student students[], int numStudent) {
-    noOfStudents = numStudent;
+    numOfStudentObjects = numStudent;
     for(int i = 0; i < numStudent; i++)
         StudentArray[i] = students[i];
 }
@@ -55,11 +55,10 @@ void ClassRoom::createStudentArray(string filename) {
         exit(1);
     }
 
-    string firstName;
-    string lastName;
+    string fname;
+    string lname;
     string social_security;
     double examScore[4];
-    double avg;
     int i=0;
 
        while(!file.eof()) {
@@ -70,29 +69,29 @@ void ClassRoom::createStudentArray(string filename) {
         file >> lname;
         StudentArray[i].setLastName(lname); // set last name
 
-        file >> ssn;
-        StudentArray[i].setSocialSecurity(ssn); // set SSN
+        file >> social_security;
+        StudentArray[i].setSocialSecurity(social_security); // set SSN
 
-        file >> score[0] >> examScore[1] >> examScore[2] >> examScore[3];
+        file >> examScore[0] >> examScore[1] >> examScore[2] >> examScore[3];
         StudentArray[i].setExamScore(examScore); // set scores
 
         i++;
     }
 
     // set number of students
-    noOfStudents = i;
+    numOfStudentObjects = i;
 
     file.close();
 }
 
 // method to sort students data by their average score
-void ClassRoom::sortByAvgScores() {
+void ClassRoom::sortByAvg() {
     int min_idx;
 
     // apply selection sort algorithm
-    for (int i = 0; i < noOfStudents - 1; i++) {
+    for (int i = 0; i < numOfStudentObjects - 1; i++) {
         min_idx = i;
-        for (int j = i+1; j < noOfStudents; j++) {
+        for (int j = i+1; j < numOfStudentObjects; j++) {
             if (StudentArray[j].getAverageScore() < StudentArray[min_idx].getAverageScore()) {
                 min_idx = j;
             }
@@ -109,9 +108,9 @@ void ClassRoom::sortByLastName() {
     int min_idx;
 
     // apply selection sort algorithm
-    for (int i = 0; i < noOfStudents - 1; i++) {
+    for (int i = 0; i < numOfStudentObjects - 1; i++) {
         min_idx = i;
-        for (int j = i+1; j < noOfStudents; j++) {
+        for (int j = i+1; j < numOfStudentObjects; j++) {
             if (StudentArray[j].getLastName() < StudentArray[min_idx].getLastName()) {
                 min_idx = j;
             }
@@ -127,12 +126,12 @@ void ClassRoom::sortByLastName() {
 double ClassRoom::getClassAvgScores() {
     double avg = 0;
 
-    for(int i = 0; i < noOfStudents; i++) {
+    for(int i = 0; i < numOfStudentObjects; i++) {
         // add average average scores
         avg += StudentArray[i].getAverageScore();
     }
     // compute average and return
-    return avg/noOfStudents;
+    return avg/numOfStudentObjects;
 }
 
 void ClassRoom::displayAllStudentInfo() {
@@ -146,8 +145,8 @@ void ClassRoom::displayAllStudentInfo() {
             << left << setw(15) << "examScore4" 
             << left << setw(15) << "Average" << endl;
     cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
-  for(int i = 0; i < noOfStudents; i++) {
-        StudentArray[i].display(); // print data
+  for(int i = 0; i < numOfStudentObjects; i++) {
+        StudentArray[i].displayBasicStats(); // print data
 }
 
 }
