@@ -1,6 +1,18 @@
+/*
+
+ Originally written by Q. Daniel
+ Modified and debugged by L. Hoffman, I. Boehlert
+ 4/26/22
+ Classroom.cpp uses the functions outline in Classroom.h to create
+ ClassRoom objects, set name of the classroom object, fill StudentArray,
+ retrieve StudentArray, and sort by average score.
+
+*/
+ 
 #include<iostream>
 #include<string>
 #include<fstream>
+#include<iomanip>
 #include"ClassRoom.h"
 #include "student.h"
 using namespace std;
@@ -27,8 +39,9 @@ string ClassRoom::getClassRoomName() {
 }
 
 //Getter-number of students
-int ClassRoom::getNoOfStudents() {
-    return numOfStudentObjects;
+void ClassRoom::getNoOfStudents() {
+    cout << "\n" << "Total students in this class: " << numOfStudentObjects << endl;
+
 }
 
 //Method to fill StudentArray array
@@ -42,16 +55,17 @@ void ClassRoom::setStudentArray(Student students[], int numStudent) {
 Student* ClassRoom::getStudentArray() {
     return StudentArray;
 }
+
 // method to read given text file and fill StudentArray
-void ClassRoom::createStudentArray(string filename) {
-    ifstream file("student.txt");
+void ClassRoom::createStudentArray() {
+    ifstream file;
 
     // open file
-    file.open(filename);
+    file.open("students.txt");
 
     // check if file is successfully opened
     if(!file.is_open()) {
-        cout << "'" << filename << "'" << " file not found !!!" << endl;
+        cout << "'" << "students.txt" << "'" << " file not found !!!" << endl;
         exit(1);
     }
 
@@ -61,15 +75,21 @@ void ClassRoom::createStudentArray(string filename) {
     double examScore[4];
     int i=0;
 
-       while(!file.eof()) {
+       while(file && i != 16) {
         // read data
-        file >> fname;
+           
+          // cout << "Student No. " << i << endl;   DEBUG NO LONGER NEEDED
+           
+           file >> fname;
         StudentArray[i].setFirstName(fname); // set first name
-
-        file >> lname;
-        StudentArray[i].setLastName(lname); // set last name
-
-        file >> social_security;
+          // cout << "First Name: " << fname << endl;   DEBUG NO LONGER NEEDED
+           file >> lname;
+           StudentArray[i].setLastName(lname); // set last name
+           
+          // cout << "Last Name: " << lname << endl;    DEBUG NO LONGER NEEDED
+           
+           
+           file >> social_security;
         StudentArray[i].setSocialSecurity(social_security); // set SSN
 
         file >> examScore[0] >> examScore[1] >> examScore[2] >> examScore[3];
@@ -123,7 +143,7 @@ void ClassRoom::sortByLastName() {
 }
 
 // method to get class average score
-double ClassRoom::getClassAvgScores() {
+void ClassRoom::getClassAvgScores() {
     double avg = 0;
 
     for(int i = 0; i < numOfStudentObjects; i++) {
@@ -131,20 +151,17 @@ double ClassRoom::getClassAvgScores() {
         avg += StudentArray[i].getAverageScore();
     }
     // compute average and return
-    return avg/numOfStudentObjects;
+    
+    cout << "\n" << "Average Class Score: " << avg/(numOfStudentObjects) << endl;
+    
 }
 
 void ClassRoom::displayAllStudentInfo() {
-        //To print
-       cout << left << setw(15) << "last Name" 
-            << left << setw(15) << "first Name" 
-            << left << setw(20) << "SSN" 
-            << left << setw(15) << "examScore1" 
-            << left << setw(15) << "examScore2" 
-            << left << setw(15) << "examScore3" 
-            << left << setw(15) << "examScore4" 
-            << left << setw(15) << "Average" << endl;
-    cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
+
+    std::cout
+            << setw(20) << "Last Name" << setw(20) << "First Name" << setw(20) << "SSN" << setw(10) << "score 1"
+            << setw(10) << "Score 2" << setw(10) << "score 3" << setw(10) << "score 4" << setw(10) << "average" << '\n';
+    
   for(int i = 0; i < numOfStudentObjects; i++) {
         StudentArray[i].displayBasicStats(); // print data
 }
