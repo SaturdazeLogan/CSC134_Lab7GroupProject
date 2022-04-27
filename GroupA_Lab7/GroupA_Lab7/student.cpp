@@ -113,9 +113,6 @@ void Student::displayBasicStats() {
         examTotal += examScore[i];
 
     }
-    std::cout
-            << setw(20) << "Last Name" << setw(20) << "First Name" << setw(20) << "SSN" << setw(10) << "score 1"
-            << setw(10) << "Score 2" << setw(10) << "score 3" << setw(10) << "score 4" << setw(10) << "average" << '\n';
 
     examAverage = examTotal/4;
 
@@ -125,6 +122,7 @@ void Student::displayBasicStats() {
         cout << setw(10) << examScore[i];
     }
     cout << setw(10) << examAverage;
+    cout << endl;
     /*setw(10) << "score 1"
        << setw(10) << "Score 2" << setw(10) << "score 3" << setw(10) << "score 4" << setw(10) << "average" << '\n';*/
 

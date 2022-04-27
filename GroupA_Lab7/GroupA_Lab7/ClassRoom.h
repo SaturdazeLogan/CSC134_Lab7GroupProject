@@ -1,5 +1,7 @@
 //
 // Created by justme on 4/24/22.
+// Modified by Logan Hoffman for accurate function
+// and variable names for use in student.cpp on 4/26/22
 //
 
 #ifndef CSC134_LAB7GROUPPROJECT_CLASSROOM_H
@@ -20,7 +22,7 @@ public:
 
     Student* getStudentArray();
     void setStudentArray(Student StudentArray[24], int numberofStudenObjects);
-    void createStudentArray(string fileName);
+    void createStudentArray();
 
     void setNumStudentObjects(int n);
     void getNumStudentObjects(int n);
@@ -29,7 +31,7 @@ public:
 
     string getClassRoomName();
     
-    double getClassAvgScores();
+    void getClassAvgScores();
 
     void read();
 
@@ -39,7 +41,7 @@ public:
 
     void displayAllStudentInfo();
 
-    int getNoOfStudents();
+    void getNoOfStudents();
 
 };
 #endif //CSC134_LAB7GROUPPROJECT_CLASSROOM_H
